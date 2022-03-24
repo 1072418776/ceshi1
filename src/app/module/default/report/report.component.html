@@ -1,0 +1,40 @@
+<div class="header">
+    <nz-date-picker [(ngModel)]="start_date" nzPlaceHolder="起始日期" ></nz-date-picker>
+    - <nz-date-picker [(ngModel)]="end_date" nzPlaceHolder="结束日期" ></nz-date-picker>
+    <button nz-button nzType="primary" style="margin-left: 10px;">搜索</button>
+</div>
+<nz-table #basicTable [nzData]="listOfData" 
+[nzFrontPagination]=true
+      [nzLoading]="loading"
+      [nzTotal]="total"
+      [nzPageSize]="pageSize"
+      [nzPageIndex]="pageIndex"
+      (nzQueryParams)="onQueryParamsChange($event)"
+    >>
+    <thead>
+      <tr>
+        <th>标题</th>
+        <th>类型</th>
+        <th>关键词</th>
+        <th>站点</th>
+        <th>上传日期</th>
+        <th>添加日期</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{data.title}}</td>
+        <td>{{data.type}}</td>
+        <td>{{data.keyword}}</td>
+        <td>{{data.site}}</td>
+        <td>{{data.update_time}}</td>
+        <td>{{data.add_time}}</td>
+        <td>
+          
+          <!-- <nz-divider nzType="vertical"></nz-divider> -->
+          <a>删除</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>

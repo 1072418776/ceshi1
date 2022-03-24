@@ -1,0 +1,25 @@
+.header{
+    background: #FFFCED;
+    border: 0px solid ;
+    line-height: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.input_list{    
+    padding: 0px;
+    list-style-type: none;
+    li{
+        margin-top:15px;
+        ;
+        span{
+            width: 120px;
+            display: inline-block;
+            margin-right: 5px;
+            text-align: right;
+        }
+        input{
+            width: 300px;
+        }
+    }   
+
+}

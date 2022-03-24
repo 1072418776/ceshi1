@@ -1,0 +1,39 @@
+<div class="header">
+    <button nz-button nzType="primary" style="margin-left: 10px;" (click)="showModal()">增加</button>
+</div>
+<nz-table #basicTable [nzData]="listData" nzShowPagination="false" >
+    <thead >
+      <tr > 
+        <th nzAlign="center">必须包含</th>
+        <th nzAlign="center">可包含</th>
+        <th nzAlign="center">不包含</th>
+        <th nzAlign="center">监控评率 </th>
+        <th  nzAlign="center">操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td nzAlign="center">{{data.keyword}}</td>
+        <td nzAlign="center">{{data.may_keyword}}</td>
+        <td nzAlign="center">{{data.nokeyword}}</td>
+        <td nzAlign="center">{{data.frequency}}</td>
+        <td nzAlign="center">
+          <a style="padding-right:10px">增加</a>
+            <a>删除</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+  <nz-modal [(nzVisible)]="isVisible" nzTitle="增加舆情关键词"
+  (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" 
+  [nzOkLoading]="isOKLoading">
+    <ng-container *nzModalContent>
+    <ul class="input_list">
+        <li><span>必须包含关键词:</span><input nz-input placeholder="必须包含关键词" [(ngModel)]="inputData.keyword" /></li>
+        <li><span>可包含关键词:</span><input nz-input placeholder="可包含关键词" [(ngModel)]="inputData.may_keyword" /></li>
+        <li><span>不包含关键词:</span><input nz-input placeholder="不包含关键词" [(ngModel)]="inputData.nokeyword" /></li>
+        <li><span>监控频率:</span><input nz-input placeholder="监控频率" [(ngModel)]="inputData.frequency" /></li>
+    </ul>
+      
+    </ng-container>
+  </nz-modal>
